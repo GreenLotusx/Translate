@@ -1,0 +1,190 @@
+<com.example.administrator.translate.view.DragLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_login">
+    <!--侧边栏布局-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="50dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="150dp"
+        android:paddingTop="50dp">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/ic_launcher" />
+
+        <ListView
+            android:id="@+id/lv_left"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
+    </LinearLayout>
+    <!--主页面布局-->
+    <LinearLayout
+        android:id="@+id/linearlayout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+        <!--标题栏布局-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@android:color/holo_green_dark">
+
+            <ImageView
+                android:id="@+id/iv_header"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/baseline_menu_white_48dp" />
+        </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bing_pic_img"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
+
+            <LinearLayout
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.25"
+                    android:background="#99FFFFFF"
+                    android:orientation="vertical"
+                    android:weightSum="1">
+                    <!--输入框布局-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_weight="1"
+                        android:weightSum="1">
+
+                        <EditText
+                            android:id="@+id/edit_input"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@null"
+                            android:gravity="left"
+                            android:hint="此处输入待翻译词或句" />
+
+                        <Button
+                            android:id="@+id/clear_btn"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_horizontal"
+                            android:background="@mipmap/clear"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="12dp"
+                        android:background="#ececec" />
+                </LinearLayout>
+                <!--翻译文本以及网络释义布局-->
+                <LinearLayout
+                    android:id="@+id/invisible_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.75"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="0.3"
+                        android:background="#80FFFFFF"
+                        android:orientation="vertical"
+                        android:weightSum="1">
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/output_textv"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_margin="10dp"
+                                android:layout_weight="1"
+                                android:textSize="16sp" />
+                        </ScrollView>
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="12dp"
+                            android:background="#ececec" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_margin="10dp"
+                        android:layout_weight="0.45"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:text="网络释义：" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/network_data"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:textSize="16sp" />
+                        </ScrollView>
+                    </LinearLayout>
+                </LinearLayout>
+                <!--录音按钮布局-->
+                <LinearLayout
+                    android:id="@+id/btn_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.75"
+                    android:layout_margin="20dp"
+                    android:visibility="visible"
+                    android:orientation="horizontal">
+                <Button
+                    android:id="@+id/recording_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:text="中"
+                    android:textSize="20sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
+
+    </LinearLayout>
+
+</com.example.administrator.translate.view.DragLayout>
